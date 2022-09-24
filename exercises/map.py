@@ -17,7 +17,7 @@ class MapExercise:
         movies_count = 0
 
         for movie in list_of_movies:
-            country_count = len(movie["country"].split(","))
+            country_count = movie["country"].count(",") + 1
             movie_rating = movie["rating_kinopoisk"]
 
             if country_count > 1 and movie_rating != "" and float(movie_rating) > 0:
@@ -40,10 +40,11 @@ class MapExercise:
         :return: Количество букв 'и' в названиях всех фильмов с рейтингом больше
         или равным заданному значению
         """
-        letter_count = 0
 
-        for movie in list_of_movies:
-            if movie["rating_kinopoisk"] != "" and float(movie["rating_kinopoisk"]) >= rating:
-                letter_count += movie["name"].count("и")
+        filtered_list_of_movies = (
+            movie["name"]
+            for movie in list_of_movies
+            if movie["rating_kinopoisk"] != "" and float(movie["rating_kinopoisk"]) >= rating
+        )
 
-        return letter_count
+        return sum(map(lambda name: name.count("и"), filtered_list_of_movies))
