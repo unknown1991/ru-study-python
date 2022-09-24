@@ -15,4 +15,12 @@ class FilterMapExercise:
         :param input_array: Исходный список.
         :return: Отфильтрованный список.
         """
-        pass
+        maped_and_filtered_array = []
+
+        for item in input_array:
+            flag, result = func(item)
+
+            if flag:
+                maped_and_filtered_array.append(result)
+
+        return maped_and_filtered_array
