@@ -12,9 +12,6 @@ class MapExercise:
         Ключи словаря: name, rating_kinopoisk, rating_imdb, genres, year, access_level, country
         :return: Средний рейтинг фильмов у которых две или больше стран
         """
-<<<<<<< Updated upstream
-        pass
-=======
 
         rating_sum = 0.0
         movies_count = 0
@@ -30,7 +27,6 @@ class MapExercise:
         average_rating = rating_sum / movies_count
 
         return average_rating
->>>>>>> Stashed changes
 
     @staticmethod
     def chars_count(list_of_movies: list[dict], rating: Union[float, int]) -> int:
@@ -44,9 +40,6 @@ class MapExercise:
         :return: Количество букв 'и' в названиях всех фильмов с рейтингом больше
         или равным заданному значению
         """
-<<<<<<< Updated upstream
-        pass
-=======
 
         filtered_list_of_movies = (
             movie["name"]
@@ -55,4 +48,3 @@ class MapExercise:
         )
 
         return sum(map(lambda name: name.count("и"), filtered_list_of_movies))
->>>>>>> Stashed changes
